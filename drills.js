@@ -18,12 +18,11 @@ const display = (stack) => {
   if (temp === null) {
     return 'nothing in stack';
   } else {
-    while (temp !== null) {
+    while (temp.next !== null) {
       console.log(temp.value);
       temp = temp.next;
     }
   }
-
 };
 
 function main(){
@@ -34,8 +33,8 @@ function main(){
   starTrek.push('McCoy');
   starTrek.push('Scotty');
 
-  // console.log(peek(starTrek));
-  // console.log(isEmpty(starTrek));
+  console.log(peek(starTrek));
+  console.log(isEmpty(starTrek));
   console.log(display(starTrek));
 }
 
