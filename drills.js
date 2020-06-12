@@ -13,21 +13,19 @@ const isEmpty = (stack) => {
   }
 };
 
-const display = (stack) => {
-  let temp = stack.top;
+function display(stack){
+  let temp= stack.top;
   if (temp === null) {
-    return 'nothing in stack';
-  } else {
-    while (temp.next !== null) {
-      console.log(temp.value);
-      temp = temp.next;
-    }
+    console.log('nothing in stack');
+  } 
+  while(temp !==null){
+    console.log(temp.value);
+    temp= temp.next;
   }
-};
+}
 
 function main(){
   const starTrek = new Stack;
-  
   starTrek.push('Kirk');
   starTrek.push('Spock');
   starTrek.push('McCoy');
@@ -35,7 +33,10 @@ function main(){
 
   console.log(peek(starTrek));
   console.log(isEmpty(starTrek));
-  console.log(display(starTrek));
+  display(starTrek);
+  starTrek.pop();
+  starTrek.pop();
+  display(starTrek);
 }
 
-const mainRun = main();
+const mainRun = main(); 
