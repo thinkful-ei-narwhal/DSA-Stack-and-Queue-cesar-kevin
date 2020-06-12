@@ -31,10 +31,10 @@ class DLinkedQueue {
     }
     const node = this.first;
     this.first = this.first.next;
+    this.first.prev = null;
     if (node === this.last) {
       this.last = null;
     }
-
     return node.value;
   }
 
