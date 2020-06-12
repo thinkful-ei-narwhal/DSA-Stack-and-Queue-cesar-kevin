@@ -26,18 +26,30 @@ function display(stack){
 
 function main(){
   const starTrek = new Stack;
-  // starTrek.push('Kirk');
-  // starTrek.push('Spock');
-  // starTrek.push('McCoy');
-  // starTrek.push('Scotty');
+  starTrek.push('Kirk');
+  starTrek.push('Spock');
+  starTrek.push('McCoy');
+  starTrek.push('Scotty');
 
-  // console.log(peek(starTrek));
-  // console.log(isEmpty(starTrek));
-  // display(starTrek);
-  // starTrek.pop();
-  // starTrek.pop();
-  // display(starTrek);
+  console.log(peek(starTrek));
+  console.log(isEmpty(starTrek));
+  display(starTrek);
+  starTrek.pop();
+  starTrek.pop();
+  display(starTrek);
+
+  //3. Check for palindromes using a stack
+  console.log('//////////////3. Check for palindromes using a stack////////////////');
+  is_palindrome('A man, a plan, a canal: Panama');
+  is_palindrome('1001');
+  is_palindrome('dad');
+  is_palindrome('Tauhida');
+  //4.Matching parentheses in an expression
+  console.log('//////////////4.Matching parentheses in an expression////////////////');
+  console.log(matchParentheses('()'));
+  console.log(matchParentheses('(()'));
 }
+const mainRun = main();
 
 function is_palindrome(s) {
   s = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
@@ -52,8 +64,23 @@ function is_palindrome(s) {
   console.log(reversedString === s);
 }
 
-// const mainRun = main();
-is_palindrome('A man, a plan, a canal: Panama');
-is_palindrome('1001');
-is_palindrome('dad');
-is_palindrome('Tauhida');
+function matchParentheses(str){
+  const marcher = new Stack;
+  let map = {
+    '(':')'
+  };
+  for(let i = 0; i < str.length; i++){
+    if(str[i]=== '('){
+      marcher.push(str[i]);
+    }else{
+      let last = marcher.pop(); 
+      if(str[i]!== map[last]) {
+        return false;
+      }
+    }
+  }
+  if (marcher.top) {
+    return false;
+  }
+  return true;
+}
