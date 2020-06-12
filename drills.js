@@ -4,9 +4,19 @@ const Queue = require('./queue');
 const peek = (stack) => {
   return stack.top;
 };
+const peekQ = (queue) => {
+  return queue.first;
+};
 
 const isEmpty = (stack) => {
   if (stack.top === null) {
+    return true;
+  } else {
+    return false;
+  }
+};
+const isEmptyQ = (queue) => {
+  if (queue.first === null) {
     return true;
   } else {
     return false;
@@ -19,6 +29,17 @@ function display(stack){
     console.log('nothing in stack');
   } 
   while(temp !==null){
+    console.log(temp.value);
+    temp= temp.next;
+  }
+}
+
+function displayQ(queue){
+  let temp= queue.first;
+  if (temp === null) {
+    console.log('nothing in stack');
+  } 
+  while(temp){//if ticket ask (temp !==null) not work
     console.log(temp.value);
     temp= temp.next;
   }
@@ -57,6 +78,19 @@ function main(){
   numbers.push(3);
   numbers.push(6);
   display(sortStack(numbers));
+  //6. Create a queue using Singly linked list
+  console.log('////////////////6.queue using Singly linked list////////////////');
+  const starTrekQ = new Queue;
+  const emptyQ = new Queue;
+  starTrekQ.enqueue('Kirk');
+  starTrekQ.enqueue('Spock');
+  starTrekQ.enqueue('Uhura');
+  starTrekQ.enqueue('Sulu');
+  starTrekQ.enqueue('Checkov');
+  console.log(peekQ(starTrekQ));
+  console.log(isEmptyQ(starTrekQ));
+  console.log(isEmptyQ(emptyQ));
+  displayQ(starTrekQ);
 }
 const mainRun = main();
 
