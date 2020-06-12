@@ -3,10 +3,12 @@ const Queue = require('./queue');
 
 
 function main(){
-  const SLL = new Stack;
-  const SLL2 = new Queue;
+  const starTrek = new Stack;
   
-  console.log('ran');
+  starTrek.push('Kirk');
+  starTrek.push('Spock');
+  starTrek.push('McCoy');
+  starTrek.push('Scotty');
 }
 
 const mainRun = main();

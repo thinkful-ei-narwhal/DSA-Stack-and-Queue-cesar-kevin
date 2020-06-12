@@ -13,6 +13,7 @@ class Stack {
 
     const node = new _Node(data, this.top);
     this.top = node;
+    return this.top;
   }
 
   pop() {
