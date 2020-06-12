@@ -34,8 +34,8 @@ function main(){
   console.log(peek(starTrek));
   console.log(isEmpty(starTrek));
   display(starTrek);
-//   starTrek.pop();
-//   starTrek.pop();
+  //   starTrek.pop();
+  //   starTrek.pop();
   display(starTrek);
 
   //3. Check for palindromes using a stack
@@ -50,9 +50,13 @@ function main(){
   console.log(matchParentheses('(()'));
   //5. Sort stack
   console.log('//////////////5. Sort stack////////////////');
-  display(starTrek);
-  sortStack();
-
+  const numbers = new Stack;
+  numbers.push(1);
+  numbers.push(5);
+  numbers.push(2);
+  numbers.push(3);
+  numbers.push(6);
+  display(sortStack(numbers));
 }
 const mainRun = main();
 
@@ -92,5 +96,13 @@ function matchParentheses(str){
 
 
 function sortStack(stack){
-
+  const stackB = new Stack;
+  while(stack.top !== null){
+    let temp=stack.pop();
+    while(stackB.top !== null && stackB.top.value<temp){
+      stack.push(stackB.pop());
+    }
+    stackB.push(temp);
+  }
+  return stackB;
 }
