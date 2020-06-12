@@ -90,6 +90,8 @@ function main(){
   console.log(peekQ(starTrekQ));
   console.log(isEmptyQ(starTrekQ));
   console.log(isEmptyQ(emptyQ));
+  starTrekQ.dequeue();
+  starTrekQ.dequeue();
   displayQ(starTrekQ);
 }
 const mainRun = main();
